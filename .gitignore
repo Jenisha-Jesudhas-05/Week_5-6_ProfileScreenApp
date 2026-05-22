@@ -1,0 +1,40 @@
+# Gradle
+.gradle/
+build/
+
+# IDE - IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+*.out
+*.app
+cmake-build-*/
+
+# Local configuration
+local.properties
+
+# Log files
+*.log
+
+# Output artifacts
+*.apk
+*.ap_
+*.aab
+
+# Keystore files (Security)
+*.jks
+*.keystore
+*.p12
+*.jceks
+
+# Google Services info
+google-services.json
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Captures and Native build
+/captures
+.externalNativeBuild
+.cxx
