@@ -19,8 +19,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -35,7 +33,8 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     isDarkTheme: Boolean,
     onThemeToggle: () -> Unit,
-    onEditClick: () -> Unit
+    onEditClick: () -> Unit,
+    onTestNotification: () -> Unit
 ) {
     val name by viewModel.name.collectAsStateWithLifecycle()
     val role by viewModel.role.collectAsStateWithLifecycle()
@@ -66,13 +65,28 @@ fun ProfileScreen(
             )
         },
         floatingActionButton = {
-            ExtendedFloatingActionButton(
-                onClick = onEditClick,
-                icon = { Icon(Icons.Default.Edit, contentDescription = null) },
-                text = { Text("Edit Profile") },
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary
-            )
+            Column(
+                horizontalAlignment = Alignment.End,
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                // Test Notification Button
+                SmallFloatingActionButton(
+                    onClick = onTestNotification,
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+                ) {
+                    Icon(Icons.Default.Notifications, contentDescription = "Test Notification")
+                }
+
+                // Edit Profile Button
+                ExtendedFloatingActionButton(
+                    onClick = onEditClick,
+                    icon = { Icon(Icons.Default.Edit, contentDescription = null) },
+                    text = { Text("Edit Profile") },
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
+            }
         }
     ) { paddingValues ->
         Column(
@@ -98,7 +112,6 @@ fun ProfileScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    // Animated avatar
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier
@@ -174,9 +187,9 @@ fun ProfileScreen(
                         label = "Username",
                         value = name.lowercase().replace(" ", "_")
                     )
-                    
+
                     Spacer(modifier = Modifier.height(16.dp))
-                    
+
                     ProfileDetailItem(
                         icon = Icons.Default.Work,
                         label = "Profession",
@@ -185,7 +198,7 @@ fun ProfileScreen(
 
                     if (bio.isNotEmpty()) {
                         Spacer(modifier = Modifier.height(24.dp))
-                        
+
                         Text(
                             text = "About Me",
                             modifier = Modifier.fillMaxWidth(),
@@ -193,9 +206,9 @@ fun ProfileScreen(
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Start
                         )
-                        
+
                         Spacer(modifier = Modifier.height(8.dp))
-                        
+
                         Text(
                             text = bio,
                             modifier = Modifier.fillMaxWidth(),
