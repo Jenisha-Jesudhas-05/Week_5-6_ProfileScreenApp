@@ -57,6 +57,11 @@ Implemented:
 ### Firebase Cloud Messaging (FCM)
 - Push notification integration using Firebase
 
+### Daily Notification Testing
+- Test button to fire instant notifications
+- Runtime permission handling for Android 13+
+- Reuses WorkManager notification channel
+
 ### WorkManager
 - Daily scheduled notifications using WorkManager
 
@@ -104,6 +109,7 @@ app/
 │       ├── viewmodel/
 │       ├── AppNavigation.kt
 │       ├── DailyNotificationWorker.kt
+        |-- NotificationTestScreen.kt
 │       ├── EditProfileScreen.kt
 │       ├── MainActivity.kt
 │       ├── MyApp.kt
@@ -118,7 +124,8 @@ app/
 
 ## 🏠 Profile Screen
 
-<img width="300" alt="Profile Screen" src="https://github.com/user-attachments/assets/d74d638f-984b-4155-a57d-934811ab5bc9" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/166ebe1f-85db-49b3-b11f-8d08c019bf8b" />
+
 
 ---
 
@@ -133,4 +140,13 @@ app/
 ## ✏️ Edit Profile Screen
 
 <img width="300" alt="Edit Profile Screen" src="https://github.com/user-attachments/assets/bbffe100-3fa4-4eec-9df3-6ebb54cfee09" />
+
+---
+
+## 🔔 Notification Test Screen
+| <img width="300" alt="image" src="https://github.com/user-attachments/assets/2f2b8ac1-146d-4b95-ace4-6e804b9b8aee" /> | <img width="300" alt="image" src="https://github.com/user-attachments/assets/82009273-09e1-465b-b0e6-62489bc7d582" /> |
+
+
+
+---
 
